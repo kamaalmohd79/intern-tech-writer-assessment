@@ -1,0 +1,107 @@
+   
+    User Management API Documentation
+1. API Overview
+The User Management API provides endpoints for user authentication and user data retrieval. The API follows RESTful principles and returns structured JSON responses for both success and error scenarios.
+Standard Success Response
+
+{
+  "success": true,
+  "message": "Operation completed successfully.",
+  "data": {}
+}
+
+
+Standard Error Response
+
+{
+  "success": false,
+  "message": "Error description.",
+  "error_code": "ERROR_IDENTIFIER",
+  "timestamp": "2026-02-28T10:30:00Z"
+}
+
+
+2. Base URL
+https://api.example.com/v1
+3. Authentication
+The API uses JWT Bearer Token Authentication. After successful login, include the token in the request header:
+Authorization: Bearer <access_token>
+4.1 Authenticate User
+Method: POST
+URL: /auth/login
+Authenticates a user using email and password credentials. If valid, a JWT access token is returned.
+Request Body
+email (string, required) – Registered user email
+password (string, required) – User account password
+Sample Request
+
+{
+  "email": "johndoe@example.com",
+  "password": "StrongPassword@123"
+}
+
+
+Sample Success Response (200)
+
+{
+  "success": true,
+  "message": "User authenticated successfully.",
+  "data": {
+    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+    "token_type": "Bearer",
+    "expires_in": 3600
+  }
+}
+
+
+Sample Error Response (401)
+
+{
+  "success": false,
+  "message": "Invalid email or password.",
+  "error_code": "AUTH_INVALID_CREDENTIALS",
+  "timestamp": "2026-02-28T10:30:00Z"
+}
+
+
+4.2 Retrieve Users
+Method: GET
+URL: /users
+Retrieves a list of registered users. Requires authentication.
+Sample Success Response (200)
+
+{
+  "success": true,
+  "message": "Users retrieved successfully.",
+  "data": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "johndoe@example.com",
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "janesmith@example.com",
+      "role": "user"
+    }
+  ]
+}
+
+
+Sample Error Response (401)
+
+{
+  "success": false,
+  "message": "Unauthorized access.",
+  "error_code": "AUTH_UNAUTHORIZED",
+  "timestamp": "2026-02-28T10:35:00Z"
+}
+
+
+5. Error Codes
+400 – INVALID_REQUEST – Request validation failed
+401 – AUTH_INVALID_CREDENTIALS – Incorrect login details
+401 – AUTH_UNAUTHORIZED – Missing or invalid token
+500 – INTERNAL_SERVER_ERROR – Unexpected server error

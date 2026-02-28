@@ -4,15 +4,15 @@
 
 `intern-tech-writer-assessment/`<br>
 `│`<br>
-`├── openapi.yaml`
-`├── README.md`
-`├── responses/`
-`│   ├── login-success.json`
-`│   ├── login-error.json`
-`│   └── users-response.json`
-`│`
-`└── docs/`
-`    └── user-api.md   (empty file)`
+`├── openapi.yaml`<br>
+`├── README.md`<br>
+`├── responses/`<br>
+`│   ├── login-success.json`<br>
+`│   ├── login-error.json`<br>
+`│   └── users-response.json`<br>
+`│`<br>
+`└── docs/`<br>
+`    └── user-api.md   (empty file)`<br>
 
 # 🟢 Task Instructions Given to Intern
 

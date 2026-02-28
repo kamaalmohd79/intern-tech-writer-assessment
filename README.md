@@ -2,8 +2,8 @@
 
 # Structure
 
-`intern-tech-writer-assessment/`
-`│`
+`intern-tech-writer-assessment/`<br>
+`│`<br>
 `├── openapi.yaml`
 `├── README.md`
 `├── responses/`

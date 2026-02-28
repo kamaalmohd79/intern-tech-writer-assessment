@@ -1,0 +1,1 @@
+# intern-tech-writer-assessment
